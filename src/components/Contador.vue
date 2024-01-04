@@ -1,5 +1,7 @@
 <!--todo componente siempre tiene-->
 <!--shorcut <vue+tab-->
+<template>
+  
 
 <div>
   <h2>{{ titulo }}</h2>
