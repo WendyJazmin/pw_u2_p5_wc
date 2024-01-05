@@ -1,8 +1,9 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <Contador titulo="Contador 1"></Contador>
-  <Contador titulo="Contador 2"/><!-- Usando la forma cortita -->
-  <Contador titulo="Contador 3"/><!-- Usando la forma cortita -->
+  <Contador titulo="Contador 1" :valor="10"/>
+  <Contador titulo="Contador 2" :valor="5+5*10"/>
+  <Contador titulo="Contador 2"/>
+
 </template>
  
 <script>
