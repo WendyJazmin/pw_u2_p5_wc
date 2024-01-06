@@ -1,6 +1,7 @@
 <template>
     <div class="container">
               <div class="calculadora">
+                
                   <div id="resultado" class="display">
                       {{resultado}}
                   </div>
