@@ -42,10 +42,6 @@ export default {
       return this.counter * this.counter;
     },
 
-   /* calcularValor(){
-      return 5+5*10;
-    },*/
-
     sumar(){
       return this.counter++;
     },
