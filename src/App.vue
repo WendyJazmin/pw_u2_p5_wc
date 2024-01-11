@@ -3,16 +3,16 @@
   <!--<Contador titulo="Contador 1" :valor="10"/>
   <Contador titulo="Contador 2" :valor="calcularValor()"/>
   <Contador titulo="Contador 2"/>-->
- <Pregunta/>
+ <pokemon/>
 </template>
  
 <script>
-import Pregunta from "./components/Pregunta.vue";
+import pokemon from "./components/pokemon.vue";
  
 export default {
   name: "App",
   components: {
-    Pregunta,
+    pokemon,
   },
   methods: {
     calcularValor(){

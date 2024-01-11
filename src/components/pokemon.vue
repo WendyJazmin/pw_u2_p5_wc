@@ -1,25 +1,18 @@
 <template>
     <div>
+        <div>POKEMON</div>
       <div class="container">
-        <label for="id">id:</label>
-        <input v-model="id" @keyup.enter="buscarPokemon" type="text" id="id" />
+        <p for="id" type="id: "><input v-model="id" @keyup.enter="buscarPokemon" type="text" id="id"></p>
       </div>
   
-      <form class="formulario" v-if="pokemonData" >
-        <div class="input-container">
-          <label for="name">Name:</label>
-          <input v-model="pokemonData.name" type="text" id="name" disabled />
-        </div>
+      <form class="formulario" v-if="booleano===true" action="https://mipai.com/procesarEtudiante" method="POST" >
+        
+          <p for="name" type="name:"><input v-model="nombre" type="text" id="name" disabled /></p>
   
-        <div class="container">
-          <label for="weight">Weight:</label>
-          <input v-model="pokemonData.weight" type="text" id="weight" disabled />
-        </div>
-  
-        <div class="container">
-          <label for="baseExperience">Base Experience:</label>
-          <input v-model="pokemonData.base_experience" type="text" id="baseExperience" disabled />
-        </div>
+          <p for="weight" type="weight:"><input v-model="peso" type="text" id="weight" disabled /></p>
+    
+          <p for="baseExperience" type="baseExperience:"> <input v-model="base" type="text" id="baseExperience" disabled></p>
+        
       </form>
 
     </div>
@@ -30,25 +23,33 @@
     data() {
       return {
         id: '',
-        pokemonData: null,
+        nombre:null,
+        peso:null,
+        base:null,
+       
+       booleano:false
       };
+    },
+
+    watch:{
+        ver(){
+            
+           this.buscarPokemon();
+           
+        },
     },
     methods: {
       async buscarPokemon() {
   
-        const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'+this.id;
-  
         
-          const response = await fetch(apiUrl);
+          const {name,weight,base_experience} = await fetch('https://pokeapi.co/api/v2/pokemon/'+this.id).then(respuesta=>respuesta.json());
   
-          const data = await response.json();
+        this.nombre = name;
+        this.peso=weight;
+        this.base=base_experience;
   
-          this.pokemonData = {
-            name: data.name,
-            weight: data.weight,
-            base_experience: data.base_experience,
-          };
-        
+       
+          this.booleano=true;
       },
     },
   };
@@ -63,5 +64,15 @@
     display: flex;
     flex-direction: column;
   }
+
+  p:before{
+
+content: attr(type);
+display: block;/*se muestre el bloque completo*/
+margin:5px 2px ;
+font-size: 16px;
+color: #6a14b1;
+font-weight: bold;
+}
   </style>
   
