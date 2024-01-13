@@ -5,13 +5,13 @@
         <p for="id" type="id: "><input v-model="id" @keyup.enter="buscarPokemon" type="text" id="id"></p>
       </div>
   
-      <form class="formulario" v-if="booleano===true" action="https://mipai.com/procesarEtudiante" method="POST" >
+      <form class="formulario" v-if="booleano===true  && id!==''" action="https://mipai.com/procesarEtudiante" method="POST" >
         
-          <p for="name" type="name:"><input v-model="nombre" type="text" id="name" disabled /></p>
+          <p for="name" type="name:"><input v-model="nombre" type="text" id="name" /></p>
   
-          <p for="weight" type="weight:"><input v-model="peso" type="text" id="weight" disabled /></p>
+          <p for="weight" type="weight:"><input v-model="peso" type="text" id="weight" /></p>
     
-          <p for="baseExperience" type="baseExperience:"> <input v-model="base" type="text" id="baseExperience" disabled></p>
+          <p for="baseExperience" type="baseExperience:"> <input v-model="base" type="text" id="baseExperience"></p>
         
       </form>
 

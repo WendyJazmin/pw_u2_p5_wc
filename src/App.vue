@@ -1,18 +1,18 @@
 <template>
  
-  <!--<Contador titulo="Contador 1" :valor="10"/>
-  <Contador titulo="Contador 2" :valor="calcularValor()"/>
-  <Contador titulo="Contador 2"/>-->
- <pokemon/>
+ <h1>ADIVINA EL POKEMON</h1>
+    <PokemonImagen/>
+    <PokemonOpciones/>
 </template>
  
 <script>
-import pokemon from "./components/pokemon.vue";
- 
+import PokemonImagen from "./components/PokemonImagen.vue";
+import PokemonOpciones from "./components/PokemonOpciones.vue";
 export default {
   name: "App",
   components: {
-    pokemon,
+   PokemonImagen,
+    PokemonOpciones
   },
   methods: {
     calcularValor(){
