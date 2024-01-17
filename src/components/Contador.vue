@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
   button{
     background-color:rgb(137, 94, 236) ;
     border-radius: 5px;

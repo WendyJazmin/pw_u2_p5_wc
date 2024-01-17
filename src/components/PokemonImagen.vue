@@ -21,6 +21,7 @@ export default {
   computed: {
     imagenFuente() {
       return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.pokemonId}.svg`;
+
       /*       return 
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" +
         this.pokemonId +
@@ -29,15 +30,18 @@ export default {
   },
 };
 </script>
-<style>
+
+<style scoped>
 .ocultar {
   filter: brightness(0);
 }
+
 img {
   height: 200px;
   position: absolute;
   right: 42%;
 }
+
 .pokemon-container {
   height: 200px;
 }

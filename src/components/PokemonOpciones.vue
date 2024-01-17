@@ -1,46 +1,41 @@
 <template>
-  
-  <!--ejemplo hacer 4 opciones-->
-
   <div class="options-container">
     <ul>
       <li>1</li>
       <li>2</li>
       <li>3</li>
       <li>4</li>
+      <li>5</li>
     </ul>
-
   </div>
-  
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
+<style scoped>
+ul {
+  list-style-type: none;
+}
 
-  ul{
-    list-style-type: none;
-  }
+li {
+  background-color: rgb(204, 194, 255);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 250px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: rgb(80, 0, 154);
+}
 
-  li{
-    background: rgb(195, 153, 253);
-    border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.2);
-    width: 250px;
-    margin-bottom: 10px;/**margen solo abajo  de cada literal*/ 
-    cursor: pointer;
-  }
-
-  li:hover{
-    background-color: rgba(145, 198, 255, 0.1);
-  }
+li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
 .options-container{
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
+
 </style>

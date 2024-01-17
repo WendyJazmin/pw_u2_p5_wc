@@ -1,29 +1,31 @@
-const obtenerIdPokemons=()=>{
-    const pokemons1 = getRandomInt(600)
-    const pokemons2 = getRandomInt(600)
-    const pokemons3 = getRandomInt(600)
-    const pokemons4 = getRandomInt(600)
-    const pokemonsArr=[pokemons1,pokemons2,pokemons3,pokemons4];
+const obtenerIdPokemons = () => {
+    const pokemon1 = obtenerNumeroAleatorio(1,600);
+    const pokemon2 = obtenerNumeroAleatorio(1,600);
+    const pokemon3 = obtenerNumeroAleatorio(1,600);
+    const pokemon4 = obtenerNumeroAleatorio(1,600);
+    const pokemonsArr = [pokemon1, pokemon2, pokemon3, pokemon4]
     console.log(pokemonsArr);
-}
+ }
 
-const obtenerNombresPokemons=(arreglo)=>{
-    const nombre1= consumirAPI(arreglo[0]);
-    const nombre2= consumirAPI(arreglo[0]);
-    const nombre3= consumirAPI(arreglo[0]);
-    const nombre4= consumirAPI(arreglo[0]);
-    
+const obtenerNombresPokemons = (arreglo) => {
+    const nombre1 = consumirAPI(arreglo[0]);
+    const nombre2 = consumirAPI(arreglo[1]);
+    const nombre3 = consumirAPI(arreglo[2]);
+    const nombre4 = consumirAPI(arreglo[3]);
 }
 
 function consumirAPI(id){
     return "nombre"
 }
-const obtenerIpPokemonsFachada=()=>{
+
+const obtenerIdPokemonsFachada = () => {
     obtenerIdPokemons()
 }
 
-function obtenerAleatorio(max){
-    return Math.floor(Math.random()*max)
+function obtenerNumeroAleatorio(inicio, fin){
+   return Math.floor(Math.random() * fin) + inicio;
 }
 
-export default obtenerIpPokemonsFachada
+
+
+export default obtenerIdPokemonsFachada
