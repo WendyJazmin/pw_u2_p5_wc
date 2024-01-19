@@ -9,7 +9,7 @@
   import PokemonOpciones from "../components/PokemonOpciones.vue";
   
   import obtenerPokemonsFachada from "../helpers/pokemonHelper.js";
-  obtenerPokemonsFachada()
+  
   
   export default {
   components:{
