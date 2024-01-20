@@ -1,27 +1,31 @@
 <template>
   <div class="container" v-if="mostrarJuego">
-   <!--<PokemonPage />-->
     <h1>Casino Pokemon</h1>
-    <h2>Puntaje:{{ puntaje }}</h2>
-    <h2>Intento:{{ intento }}</h2>
-    <Imagen :texto="texto1" :urlImg="url1"/>
-    <Imagen :texto="texto2" :urlImg="url2"/>
-    <Imagen :texto="texto3" :urlImg="url3"/>
-    <button @click="jugar">Jugar</button>
+    <h2>Puntaje: {{ puntaje }}</h2>
+    <h2>Intento: {{ intento }}</h2>
+
+    <div class="imagenes-container">
+      <Imagen class="imagen1" :texto="texto1" :urlImg="url1"/>
+      <Imagen class="imagen2" :texto="texto2" :urlImg="url2"/>
+      <Imagen class="imagen3" :texto="texto3" :urlImg="url3"/>
+    </div>
+
+    <div class="button-container">
+      <button @click="jugar">Jugar</button>
+    </div>
   </div>
 
   <div class="mensaje1" v-if="mostrarPerdedor">
     <h1>Haz utilizado tus 5 intentos</h1>
     <h1>el juego ha terminado, intentalo nuevamente</h1>
-    <button @click="reiniciar">Nuevo Juego</button>
+    <button class="nuevoJuego" @click="reiniciar">Nuevo Juego</button>
   </div>
-  
+
   <div class="mensaje2" v-if="mostrarGanador">
     <h1>Puntaje: {{ puntaje }}</h1>
     <h1>Felicitaciones has ganado un premio de $10.000,00</h1>
-    <button @click="reiniciar">Nuevo Juego</button>
+    <button class="nuevoJuego" @click="reiniciar">Nuevo Juego</button>
   </div>
-  
 </template>
 
 <script>
@@ -50,9 +54,9 @@ export default {
     url1:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
     url2:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
     url3:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg",
-    texto1:"XXXXXXX",
-    texto2:"XXXXXXX",
-    texto3:"XXXXXXX",
+    texto1:"XXXXXX",
+    texto2:"XXXXXX",
+    texto3:"XXXXXX",
     mostrarGanador:false,
     mostrarPerdedor:false,
     mostrarJuego:true
@@ -121,9 +125,9 @@ export default {
     this.url1="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
     this.url2="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
     this.url3="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/3.svg",
-    this.texto1="XXXXXXX",
-    this.texto2="XXXXXXX",
-    this.texto3="XXXXXXX",
+    this.texto1="XXXXXX",
+    this.texto2="XXXXXX",
+    this.texto3="XXXXXX",
     this.mostrarGanador=false,
     this.mostrarPerdedor=false,
     this.mostrarJuego=true
@@ -134,28 +138,62 @@ export default {
 
 <style>
 
-.container{
- grid-template-columns:  repeat(4,200px);
- display: grid;
- justify-content: center;
- align-content: center;
+div {
+  font-family: "Baloo 2", sans-serif;
 }
 
-h1{
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  justify-content: center;
+  place-items: center;
+
+}
+
+h1 {
   grid-column: span 4;
 }
 
-h2{
+h2 {
   grid-column: span 2;
 }
 
-.mensaje1{
-  color: rgb(255, 0, 76);
+.button-container {
+  grid-column: span 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  
 }
 
-.mensaje2{
+.imagenes-container {
+  display: flex;
+  margin: auto;
+  gap: 100px; /* Espaciado entre imágenes */
+}
 
+.nuevoJuego{
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
   
-  color: rgb(51, 0, 255);
+}
+
+.mensaje1 {
+  color: rgb(255, 0, 76);
+  text-align: center;
+  align-items: center;
+  padding: auto;
+  margin-top: 200px;
+ 
+}
+
+.mensaje2 {
+  color: rgb(74, 38, 255);
+  text-align: center;
+ padding: auto;
+ margin-top: 200px;
 }
 </style>
