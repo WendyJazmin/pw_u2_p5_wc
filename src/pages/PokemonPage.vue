@@ -1,41 +1,82 @@
 <template>
+  <h1 v-if="!pokemonGanador">Espere por favor, estamos cargando el juego...</h1>
+  <div v-else>
     <h1>Adivina el Pokemon</h1>
-    <PokemonImagen :pokemonId="6" :showPokemon="true"/>
-    <PokemonOpciones/>
-  </template>
-  
-  <script>
-  import PokemonImagen from "../components/PokemonImagen.vue";
-  import PokemonOpciones from "../components/PokemonOpciones.vue";
-  
-  import obtenerPokemonsFachada from "../helpers/pokemonHelper.js";
-  
-  
-  export default {
-  components:{
-      PokemonImagen,
-      PokemonOpciones,
+    <PokemonImagen :pokemonId="pokemonGanador.id" :showPokemon="mostrarPokemon" />
+    <PokemonOpciones @selecciono="revisarClick($event)" :pokemons="pokemonsArr" />
+  </div>
+</template>
+ 
+<script>
+import PokemonImagen from "../components/PokemonImagen.vue";
+import PokemonOpciones from "../components/PokemonOpciones.vue";
+ 
+import obtenerPokemonsFachada from "../helpers/pokemonHelper.js";
+ 
+export default {
+  components: {
+    PokemonImagen,
+    PokemonOpciones,
   },
-  mounted(){
-    console.log('Se monto el componente pokemonPage');
-    this.cargaInicial()
-  }, 
-  methods:{
-   async cargaInicial(){
-    const arregloPokemons = await obtenerPokemonsFachada();
-    console.log('desde componente');
-    console.log(arregloPokemons);
+ 
+  beforeCreate() {
+    console.log("Antes de crear el componente");
+  },
+  created() {
+    console.log("Se creó el componente");
+  },
+  beforeMount() {
+    console.log("Antes de que se monte el componente en la página");
+  },
+  mounted() {
+    // Ojo, que mounted no se coloca como otra option api, con ":"
+    console.log("Se montó el componente Pokemon Pages");
+    this.cargaInicial();
+  },
+  beforeUpdate() {
+    console.log("Antes de que se actualize el componente");
+  },
+  updated() {
+    console.log("Se actualiza el componente");
+  },
+  beforeDestroy() {
+    console.log("Antes de destruir");
+  },
+  destroyed() {
+    console.log("Destruido");
+  },
+ 
+  methods: {
+    async cargaInicial() {
+      const arregloPokemons = await obtenerPokemonsFachada();
+      console.log("Desde componente");
+      console.log(arregloPokemons);
+      this.pokemonsArr = arregloPokemons;
+      const indiceGanador = Math.floor(Math.random() * 4);
+      this.pokemonGanador = this.pokemonsArr[indiceGanador];
+    },
+    revisarClick(datoRecibido){
+      console.log("Dio click, y reporto desde el padre");
+      console.log(datoRecibido.id)
+      this.mostrarPokemon=true;
+      
     }
-  }
-  
-  }
-  </script>
-  
+  },
+  data() {
+    return {
+      pokemonsArr: [],
+      pokemonGanador: null,
+      mostrarPokemon: false,
+    };
+  },
+};
+</script>
+ 
   <style scoped>
   h1{
     color: rgb(171, 0, 111);
     font-family: "Baloo 2", sans-serif;
-    
+    align-content: center;
   }
   
   </style>

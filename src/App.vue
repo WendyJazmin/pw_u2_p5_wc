@@ -1,26 +1,5 @@
 <template>
-  <div class="container" v-if="mostrarJuego">
-   <!--<PokemonPage />-->
-    <h1>Casino Pokemon</h1>
-    <h2>Puntaje:{{ puntaje }}</h2>
-    <h2>Intento:{{ intento }}</h2>
-    <Imagen :texto="texto1" :urlImg="url1"/>
-    <Imagen :texto="texto2" :urlImg="url2"/>
-    <Imagen :texto="texto3" :urlImg="url3"/>
-    <button @click="jugar">Jugar</button>
-  </div>
-
-  <div class="mensaje1" v-if="mostrarPerdedor">
-    <h1>Haz utilizado tus 5 intentos</h1>
-    <h1>el juego ha terminado, intentalo nuevamente</h1>
-    <button @click="reiniciar">Nuevo Juego</button>
-  </div>
-  
-  <div class="mensaje2" v-if="mostrarGanador">
-    <h1>Puntaje: {{ puntaje }}</h1>
-    <h1>Felicitaciones has ganado un premio de $10.000,00</h1>
-    <button @click="reiniciar">Nuevo Juego</button>
-  </div>
+  <PokemonPage />
   
 </template>
 
@@ -30,18 +9,18 @@ import Imagen from './components/Imagen.vue';
 //import Calculadora from "./components/Calculadora.vue";
 //import Pregunta from "./components/Pregunta.vue";
 
-//import PokemonPage from "./pages/PokemonPage.vue";
+import PokemonPage from "./pages/PokemonPage.vue";
 
 
 
 export default {
   name: "App",
   components: {
-    Imagen
+    //Imagen,
     //Contador,
    // Calculadora,
     //Pregunta,
-    //PokemonPage,
+    PokemonPage,
   },
   data(){
     return{
